@@ -5,3 +5,4 @@ authors = ["me"]
 edition = "2018"
 
 [dependencies]
+maplit = "1.0.1"
