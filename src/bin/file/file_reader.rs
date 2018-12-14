@@ -17,7 +17,7 @@ impl FileReader {
         }
     }
 
-    pub fn lines_iterator(&self) -> Lines<BufReader<File>> {
+    pub fn read_line_by_line(&self) -> Lines<BufReader<File>> {
         let path = Path::new(&self.path);
         let display = path.display();
 
@@ -27,6 +27,12 @@ impl FileReader {
             Ok(file) => file,
         };
         let reader = BufReader::new(f);
-        return reader.lines();
+        reader.lines()
+    }
+
+    pub fn read_all_lines(&self) -> Vec<String> {
+        self.read_line_by_line()
+            .map(|l| l.expect("Could not parse line"))
+            .collect()
     }
 }
