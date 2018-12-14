@@ -2,7 +2,7 @@ mod file;
 
 fn main() {
     println!("part01: {}", part01());
-    println!("part01: {}", part02());
+    println!("part02: {}", part02());
 }
 
 fn reader() -> file::file_reader::FileReader {
