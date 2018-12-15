@@ -1,16 +1,17 @@
-#[macro_use] extern crate maplit;
+#[macro_use]
+extern crate maplit;
 
 use std::collections::BTreeMap;
 
-mod file;
+use file_reader::FileReader;
 
 fn main() {
     println!("part01: {}", part01());
     println!("part02: {}", part02());
 }
 
-fn reader() -> file::file_reader::FileReader {
-    return file::file_reader::FileReader::new("./resources/input/2018day01");
+fn reader() -> FileReader {
+    return FileReader::new("./resources/input/2018day01");
 }
 
 fn part01() -> i32 {
@@ -25,7 +26,7 @@ fn part01() -> i32 {
 
 fn part02() -> i32 {
     let mut sum = 0;
-    let mut tree_map:BTreeMap<i32, i32> = btreemap!{sum => sum};
+    let mut tree_map: BTreeMap<i32, i32> = btreemap! {sum => sum};
     let lines = reader().read_all_lines(); // file
     loop {
         for line in lines.iter() {

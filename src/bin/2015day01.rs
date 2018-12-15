@@ -1,12 +1,12 @@
-mod file;
+use file_reader::FileReader;
 
 fn main() {
     println!("part01: {}", part01());
     println!("part02: {}", part02());
 }
 
-fn reader() -> file::file_reader::FileReader {
-    return file::file_reader::FileReader::new("./resources/input/2015day01");
+fn reader() -> FileReader {
+    return FileReader::new("./resources/input/2015day01");
 }
 
 fn part01() -> i32 {

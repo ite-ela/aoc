@@ -4,11 +4,11 @@ use std::fs::File;
 use std::io::Lines;
 use std::path::Path;
 use std::error::Error;
+
 pub struct FileReader {
     path: String,
 }
 
-#[allow(dead_code)] //get rid of false-positive warning when compiling in IDEA
 impl FileReader {
     pub fn new(path: &str) -> FileReader {
         FileReader {
