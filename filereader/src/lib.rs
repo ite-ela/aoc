@@ -38,8 +38,12 @@ impl FileReader {
     }
 
     pub fn read_all_characters(&self) -> Vec<char> {
+        self.contents().chars().collect()
+    }
+
+    pub fn contents(&self) -> String {
         let mut contents = String::new();
         self.file().read_to_string(&mut contents).unwrap();
-        contents.chars().collect()
+        contents
     }
 }

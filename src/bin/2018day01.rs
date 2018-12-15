@@ -27,7 +27,7 @@ fn part01() -> i32 {
 fn part02() -> i32 {
     let mut sum = 0;
     let mut tree_map: BTreeMap<i32, i32> = btreemap! {sum => sum};
-    let lines = reader().read_all_lines(); // file
+    let lines = reader().read_all_lines();
     loop {
         for line in lines.iter() {
             sum += line
