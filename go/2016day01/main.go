@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"./util"
+	"../util"
 )
 
 func main() {
