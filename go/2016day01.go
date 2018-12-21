@@ -6,6 +6,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"./util"
 )
 
 func main() {
@@ -20,22 +22,9 @@ type state struct {
 	direction, position xy
 }
 
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
-func Abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
-}
-
 func part02(path string) int {
 	dat, err := ioutil.ReadFile(path)
-	check(err)
+	util.Check(err)
 	turns := strings.Split(string(dat), ", ")
 
 	north := xy{0, 1}
@@ -44,7 +33,7 @@ func part02(path string) int {
 	dude := state{direction: north, position: start}
 	goal := travel(turns, &dude)
 
-	return Abs(goal.x) + Abs(goal.y)
+	return util.Abs(goal.x) + util.Abs(goal.y)
 }
 
 func travel(turns []string, current *state) xy {
@@ -63,7 +52,7 @@ func travel(turns []string, current *state) xy {
 
 func step(current state, turn string, visited map[xy]int) (state, xy) {
 	dist, err := strconv.Atoi(turn[1:])
-	check(err)
+	util.Check(err)
 
 	if dist < 0 {
 		panic(fmt.Errorf("invalid distance %d", dist))
