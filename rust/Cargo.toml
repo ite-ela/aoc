@@ -7,3 +7,7 @@ edition = "2018"
 [dependencies]
 maplit = "1.0.1"
 file-reader = { path = "filereader" }
+ferris-says = "0.2"
+
+[build-dependencies]
+fs_extra = "1.2.0"

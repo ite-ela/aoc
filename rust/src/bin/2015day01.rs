@@ -6,14 +6,14 @@ fn main() {
 }
 
 fn reader() -> FileReader {
-    return FileReader::new("./resources/input/2015day01");
+    return FileReader::new("../resources/input/2015day01");
 }
 
 fn part01() -> i32 {
     let mut floor = 0;
     for up_or_down in reader().read_all_characters() {
         floor += character_to_floor_change(up_or_down);
-    };
+    }
 
     floor
 }

@@ -1,7 +1,7 @@
 use file_reader::FileReader;
 
 fn reader() -> FileReader {
-    return FileReader::new("./resources/input/2016day01");
+    return FileReader::new("../resources/input/2016day01");
 }
 
 fn main() {
@@ -13,7 +13,7 @@ fn part01() -> i32 {
     let turns = string.split(", ");
 
     let position: &mut Vec<i32> = &mut vec![0, 0]; // x,y
-    let direction= &mut Direction::NORTH;
+    let direction = &mut Direction::NORTH;
     for turn in turns {
         let l_or_r = turn.chars().next().unwrap();
         let step_string: String = turn.chars().skip(1).collect();
@@ -36,7 +36,12 @@ enum Direction {
 
 fn turn_to_direction(character: char, current: &mut Direction) {
     // -_-
-    let directions = vec![Direction::NORTH, Direction::EAST, Direction::SOUTH, Direction::WEST];
+    let directions = vec![
+        Direction::NORTH,
+        Direction::EAST,
+        Direction::SOUTH,
+        Direction::WEST,
+    ];
     let current_pos = directions.iter().position(|&x| x == *current).unwrap() as i32;
     let mut next_pos = match character {
         'L' => current_pos - 1,

@@ -1,9 +1,8 @@
+use std::fs::File;
 use std::io::prelude::*;
 use std::io::BufReader;
-use std::fs::File;
 use std::io::Lines;
 use std::path::Path;
-use std::error::Error;
 
 pub struct FileReader {
     path: String,
@@ -21,8 +20,7 @@ impl FileReader {
         let display = path.display();
 
         match File::open(path) {
-            Err(why) => panic!("couldn't open {}: {}", display,
-                               why.description()),
+            Err(why) => panic!("couldn't open {}: {}", display, why),
             Ok(file) => file,
         }
     }
