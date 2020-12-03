@@ -10,11 +10,11 @@ object Aoc2020Day03 {
     println("part02: " + part02)
   }
 
-  def part01: Integer = {
+  def part01: Int = {
     countTrees(XY(3, 1), getMapOfTrees)
   }
 
-  def part02: Integer = {
+  def part02: Int = {
     /** <ul>
      * <li> Right 1, down 1.
      * <li> Right 3, down 1. (This is the slope you already checked.)
@@ -75,7 +75,7 @@ object Aoc2020Day03 {
     numberOfTrees
   }
 
-  case class XY(var x: Integer, var y: Integer)
+  case class XY(var x: Int, var y: Int)
 
   case class MapOfTrees(treeSet: mutable.HashSet[XY], dimensions: XY)
 
