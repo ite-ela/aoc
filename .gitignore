@@ -2,3 +2,5 @@
 *.iml
 target/
 Cargo.lock
+out/
+.bsp/
