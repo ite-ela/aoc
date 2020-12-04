@@ -47,11 +47,9 @@ object Aoc2020Day04 {
     countValidPassports(isValidPassport)
   }
 
-  def matchRange(t: Int, min: Int, max: Int): Boolean = {
-    t match {
-      case x if min until max contains x => true
-      case _ => false
-    }
+  def matchRange(t: Int, min: Int, max: Int): Boolean = t match {
+    case x if min until max contains x => true
+    case _ => false
   }
 
   def checkHeight(height: String): Boolean = {
