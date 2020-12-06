@@ -1,14 +1,15 @@
 import scala.collection.mutable
 import scala.io.Source
 
-object Aoc2020day05 {
+object Aoc2020Day05 {
 
   val ROWS = 128
   val COLS = 8
 
   def main(args: Array[String]): Unit = {
-    new Util().printPart("part01", "2020day05", part01)
-    new Util().printPart("part02", "2020day05", part02)
+    new Util()
+      .printPart("part01", "2020day05", part01)
+      .printPart("part02", "2020day05", part02)
   }
 
   def part01(source: Source): Int = {
