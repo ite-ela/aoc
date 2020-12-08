@@ -9,10 +9,10 @@ object Util {
 
   def readFile[T](fileName: String, consumer: Source => T): Option[T] = {
     val filename = "../resources/input/" + fileName
-    Using(Source.fromFile(filename)) { source =>
+    val attempt = Using(Source.fromFile(filename)) { source =>
       return Some(consumer(source))
     }
 
-    None
+    attempt.getOrElse(throw attempt.failed.get)
   }
 }
