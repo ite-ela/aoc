@@ -12,7 +12,7 @@ object Aoc2020Day10 {
 
   def part01(source: Source): Int = {
     var node = 0
-    val diffs = mutable.HashMap[Int, Int]((3, 1)) // the 22 volt is always there with a diff of 3
+    val diffs = mutable.HashMap[Int, Int]((3, 1)) // the last node is always there with a diff of 3
     for (jolt <- source.getLines().toList
       .map(x => x.toInt)
       .sorted) {
@@ -21,7 +21,6 @@ object Aoc2020Day10 {
       node += diff
     }
 
-    println(diffs)
     diffs.getOrElse(1, 0) * diffs.getOrElse(3, 0)
   }
 
