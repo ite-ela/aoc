@@ -1,8 +1,6 @@
-import Util.printPart
+import Util.{FixedList, printPart}
 
-import scala.collection._
 import scala.collection.immutable.Seq
-import scala.collection.mutable.ListBuffer
 import scala.io.Source
 
 object Aoc2020Day09 {
@@ -90,24 +88,6 @@ object Aoc2020Day09 {
       return Some(slice.min + slice.max)
     }
     None
-  }
-
-  class FixedList[A](max: Int) extends Seq[A] {
-
-    val list: ListBuffer[A] = ListBuffer()
-
-    def append(elem: A) {
-      if (list.size == max) {
-        list.dropInPlace(1)
-      }
-      list.append(elem)
-    }
-
-    override def apply(i: Int): A = list.apply(i)
-
-    override def length: Int = list.length
-
-    override def iterator: Iterator[A] = list.iterator
   }
 
 }
