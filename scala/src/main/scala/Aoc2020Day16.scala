@@ -74,7 +74,7 @@ object Aoc2020Day16 {
       }
     }
 
-    def matchesBoth(i: Int, a: Range, b: Range): Boolean = {
+    def matchesAnyRange(i: Int, a: Range, b: Range): Boolean = {
       for (ticket <- validTickets) {
         val value = ticket(i)
         if (!a.contains(value) && !b.contains(value)) {
@@ -87,7 +87,7 @@ object Aoc2020Day16 {
     def getNamesThatMatchesAllTickets(index: Int): ArrayBuffer[String] = {
       val namesMatch = ArrayBuffer.empty[String]
       for ((key, (a, b)) <- ranges) {
-        if (matchesBoth(index, a, b)) {
+        if (matchesAnyRange(index, a, b)) {
           namesMatch.addOne(key)
         }
       }
@@ -107,17 +107,17 @@ object Aoc2020Day16 {
         .filter(e => e._2.nonEmpty)
         .minBy(x => x._2.length)
 
-      val str = names(0)
-      myValues.put(str, value)
+      val name = names(0)
+      myValues.put(name, value)
 
-      for ((_, v) <- possibleNamesForValues.filter(e => e._2.contains(str))) {
-        v.remove(v.indexOf(str))
+      for ((_, nameList) <- possibleNamesForValues.filter(e => e._2.contains(name))) {
+        nameList.remove(nameList.indexOf(name))
       }
     }
 
     myValues.filter(e => e._1.startsWith("departure"))
       .values
-      .map(v => v.toLong)
+      .map(value => value.toLong)
       .product
   }
 }
