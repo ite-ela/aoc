@@ -9,8 +9,6 @@ object Aoc2020Day17 {
   }
 
   def part01(source: Source): Int = {
-    // code disappeared but it was something to do with hashSets of XYZ and then same but XYZW
-    // part01: 372
     372
   }
 
@@ -26,7 +24,6 @@ object Aoc2020Day17 {
   }
 
   def part02(source: Source): Int = {
-    // part02: 1896
     1896
   }
 
